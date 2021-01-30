@@ -1,0 +1,47 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/snapshots'
+        }
+
+        mavenCentral()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+
+        //implementation fileTree(dir: 'libs', include: ['*.jar'])
+        //testImplementation 'junit:junit:4.12'
+        classpath "org.igniterealtime.smack:smack-tcp:4.3.0"
+        //classpath "org.igniterealtime.smack:smack-extension:4.2.0"
+        classpath "org.igniterealtime.smack:smack-android:4.3.0"
+
+        classpath "org.igniterealtime.smack:smack-java7:4.3.0"
+
+
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+
+    configurations {
+        all*.exclude group: 'xpp3', module: 'xpp3'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
